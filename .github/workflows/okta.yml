@@ -13,8 +13,22 @@ on:
 jobs:
   plan:
     runs-on: ubuntu-latest
+
+    env:
+      OKTA_ORG: ${{ secrets.OKTA_ORG }}
+      OKTA_TOKEN: ${{ secrets.OKTA_TOKEN }}
+
     steps:
       - uses: actions/checkout@v3
+
       - uses: hashicorp/setup-terraform@v2
-      - run: terraform -chdir=terraform/okta init
-      - run: terraform -chdir=terraform/okta plan
+
+      - name: Terraform Init
+        run: terraform -chdir=terraform/okta init
+
+      - name: Terraform Plan
+        run: terraform -chdir=terraform/okta plan \
+          -var okta_org="$OKTA_ORG" \
+          -var okta_token="$OKTA_TOKEN"
+# adding tokens via github secret to be inject during pipeline rather than storing purely in tfvars
+
