@@ -8,9 +8,11 @@ Okta-related Terraform lives under `terraform/okta/`. The initial configuration 
 
 
 We can see the first successful terraform plan on github action execution 4 below
+
 [text](https://github.com/hydropero/quick_cicd/actions/runs/19661013658/job/56307227409#logs)
 
-![Successful Terraform Plan](docs/first_success_terraform_apply.png)
+Screenshot of local successful terraform apply
+![Successful Terraform Apply](docs/first_success_terraform_apply.png)
 
 
 ## AWS
