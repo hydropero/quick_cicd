@@ -1,4 +1,4 @@
-Extremely minimal example of ci/cd pipeline.
+# Extremely minimal example of ci/cd pipeline.
 
 This repo contains an example of managing AWS EC2 instances and Okta (groups) through a github/terraform workflow. Real Okta account + API Key was created for test purposes/validation.
 
@@ -23,7 +23,7 @@ GitHub Actions runs Terraform automatically on any pull request or on pushes to 
 
 Note - There is no apply step. The workflows validate changes and ensure plans are consistent before they’re merged.
 
-# Future State / Prod version
+## Future State / Prod version
 If assigned to genuinely create something like this from scratch to production ready here is what I would prioritize:
 - Remotely manage Terraform state (s3 likely)
 - different environments dev, qa, prod, etc..
