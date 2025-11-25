@@ -1,0 +1,20 @@
+
+name: AWS Terraform
+
+on:
+  pull_request:
+    paths:
+      - "terraform/aws/**"
+  push:
+    branches: ["main"]
+    paths:
+      - "terraform/aws/**"
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+      - run: terraform -chdir=terraform/aws init
+      - run: terraform -chdir=terraform/aws plan

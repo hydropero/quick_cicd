@@ -1,0 +1,20 @@
+
+name: Okta Terraform
+
+on:
+  pull_request:
+    paths:
+      - "terraform/okta/**"
+  push:
+    branches: ["main"]
+    paths:
+      - "terraform/okta/**"
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hashicorp/setup-terraform@v2
+      - run: terraform -chdir=terraform/okta init
+      - run: terraform -chdir=terraform/okta plan
